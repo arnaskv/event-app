@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import SideBar from '@/components/sidebar/SidebarMenu.vue'
+import MenuButton from '@/components/MenuButton.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="flex">
+    <SideBar />
+    <div class="flex-1">
+      <MenuButton />
+      <h1>Welcome to the App</h1>
+    </div>
+  </div>
 </template>
