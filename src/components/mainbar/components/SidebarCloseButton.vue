@@ -11,14 +11,6 @@ const { toggleSidebar } = useSidebarStore()
     @clicked="toggleSidebar"
     :icon="closeIcon"
     description="Close menu"
-    class="close-button"
+    class="md:invisible"
   />
 </template>
-
-<style scoped>
-@media (min-width: 768px) {
-  .close-button {
-    visibility: hidden;
-  }
-}
-</style>

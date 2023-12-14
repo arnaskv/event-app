@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import useSidebarStore from '@/stores/sidebar'
 import menuIcon from '@/assets/icons/menu.svg'
-import NavigationButton from './NavigationButton.vue'
+import NavigationButton from '@/components/NavigationButton.vue'
 
 const { toggleSidebar } = useSidebarStore()
 </script>
@@ -11,6 +11,6 @@ const { toggleSidebar } = useSidebarStore()
     @clicked="toggleSidebar"
     :icon="menuIcon"
     description="Menu"
-    class="md:hidden"
+    class="md:invisible"
   />
 </template>
