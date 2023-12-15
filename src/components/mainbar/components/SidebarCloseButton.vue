@@ -10,7 +10,7 @@ const { toggleSidebar } = useSidebarStore()
   <NavigationButton
     @clicked="toggleSidebar"
     :icon="closeIcon"
-    description="Close menu"
+    description="Close"
     class="md:invisible"
   />
 </template>

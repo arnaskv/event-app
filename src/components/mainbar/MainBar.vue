@@ -3,17 +3,17 @@ import { storeToRefs } from 'pinia'
 import useSidebarStore from '@/stores/sidebar'
 import SideBarOpenButton from './components/SideBarOpenButton.vue'
 import SidebarCloseButton from './components/SidebarCloseButton.vue'
+import SearchButton from './components/SearchButton.vue'
 
 const { sidebarEnabled } = storeToRefs(useSidebarStore())
 </script>
 
 <template>
-  <div class="flex mainbar justify-between align-middle border-solid border-2 border-red-600 px-4">
+  <div class="flex mainbar justify-between items-center px-4">
     <SideBarOpenButton v-if="!sidebarEnabled" />
     <SidebarCloseButton v-else />
-    <div class="flex self-center">
-      <h1>EventFully</h1>
-    </div>
+    <h1>EventFully</h1>
+    <SearchButton />
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  icon: string
+  icon?: string
   description: string
 }>()
 
@@ -8,11 +8,11 @@ const emit = defineEmits(['clicked'])
 </script>
 
 <template>
-  <div class="p-4">
+  <div>
     <button
       type="button"
       @click="emit('clicked')"
-      class="bg-red-300 text-white p-2 rounded aspect-square hover:bg-red-400"
+      class="bg-red-300 text-white p-2 rounded aspect-square min-w-min hover:bg-red-400"
     >
       <img :src="icon" :alt="description" />
     </button>
