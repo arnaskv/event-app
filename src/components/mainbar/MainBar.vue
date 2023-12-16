@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import useSidebarStore from '@/stores/sidebar'
 import SideBarOpenButton from './components/SideBarOpenButton.vue'
@@ -12,7 +13,9 @@ const { sidebarEnabled } = storeToRefs(useSidebarStore())
   <div class="flex mainbar justify-between items-center px-4">
     <SideBarOpenButton v-if="!sidebarEnabled" />
     <SidebarCloseButton v-else />
-    <h1>EventFully</h1>
+    <router-link :to="{ name: 'home' }" class="app-name text-amber-600 text-4xl">
+      EventFully
+    </router-link>
     <SearchButton />
   </div>
 </template>

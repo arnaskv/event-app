@@ -5,11 +5,19 @@ import SideBar from './components/sidebar/SideBar.vue'
 </script>
 
 <template>
-  <MainBar />
-  <div class="flex">
-    <SideBar />
-    <main class="flex-1 px-4">
-      <RouterView />
-    </main>
+  <div class="dark:bg-black">
+    <MainBar />
+    <div class="flex">
+      <SideBar />
+      <main class="flex-1 px-4 main-view">
+        <RouterView />
+      </main>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.main-view {
+  min-height: var(--height-sidebar);
+}
+</style>

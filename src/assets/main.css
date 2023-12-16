@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,4 +7,8 @@
 :root {
   --height-mainbar: 5rem;
   --height-sidebar: calc(100vh - var(--height-mainbar));
+}
+
+.app-name {
+  font-family: 'Rubik Bubbles', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
