@@ -14,6 +14,6 @@ defineEmits(['clicked'])
     @clicked="$emit('clicked')"
     :iconName="iconName"
     :title="title"
-    class="p-4 w-72 hover:bg-amber-100 dark:hover:bg-amber-900"
+    class="p-4 w-full hover:bg-amber-100 dark:hover:bg-amber-900"
   />
 </template>

@@ -31,7 +31,7 @@ onUnmounted(() => {
 <template>
   <menu
     v-show="sidebarEnabled"
-    class="sidebar absolute w-full bg-rose-50 dark:bg-slate-900 dark:border-white text-white border-solid border-2 border-black rounded-t-lg md:block md:relative md:w-80 md:rounded-none md:rounded-r-lg"
+    class="grid auto-rows-min gap-4 p-4 sidebar absolute w-full bg-rose-50 dark:bg-slate-900 dark:border-white text-white border-solid border-2 border-black rounded-t-lg md:block md:relative md:w-80 md:rounded-none md:rounded-r-lg"
   >
     <SidebarItem title="Create event" iconName="add" />
     <SidebarItem title="Nearby" iconName="nearby" />
@@ -61,7 +61,7 @@ onUnmounted(() => {
 
 @media (min-width: 768px) {
   .sidebar {
-    display: block !important;
+    display: grid !important;
   }
 }
 </style>
