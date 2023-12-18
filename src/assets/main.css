@@ -12,3 +12,21 @@
 .app-name {
   font-family: 'Rubik Bubbles', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+@layer components {
+  .dark-mode-outline {
+    text-shadow:
+      -1px -1px 0 #fff,
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff;
+  }
+
+  .light-mode-outline {
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+  }
+}

@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import NavigationButton from '@/components/NavigationButton.vue'
-import musicIcon from '@/assets/icons/headphones.svg'
-import esportsIcon from '@/assets/icons/esports.svg'
-import fashionIcon from '@/assets/icons/fashion.svg'
-import healthIcon from '@/assets/icons/health.svg'
-import techIcon from '@/assets/icons/technology.svg'
+import { RouterLink } from 'vue-router'
+import MainButton from '@/components/MainButton.vue'
 </script>
 
 <template>
@@ -12,28 +8,28 @@ import techIcon from '@/assets/icons/technology.svg'
   <menu class="py-8">
     <div class="flex justify-between pb-5">
       <p class="font-bold">Categories</p>
-      <button class="font-bold underline" type="button">See all</button>
+      <router-link :to="{ name: 'category' }" class="font-bold underline">See all</router-link>
     </div>
     <div class="grid grid-cols-5">
       <!-- Could be improved to dynamically display 5 most relevant categories by users activity -->
       <div class="flex flex-col items-center gap-3">
-        <NavigationButton name="Music" :icon="musicIcon" description="Music" />
+        <MainButton name="Music" iconName="headphones" />
         <label for="Music">Music</label>
       </div>
       <div class="flex flex-col items-center gap-3">
-        <NavigationButton name="Esports" :icon="esportsIcon" description="Esports" />
+        <MainButton name="Esports" iconName="esports" />
         <label for="Esports">Esports</label>
       </div>
       <div class="flex flex-col items-center gap-3">
-        <NavigationButton name="Fashion" :icon="fashionIcon" description="Fashion" />
+        <MainButton name="Fashion" iconName="fashion" />
         <label for="Fashion">Fashion</label>
       </div>
       <div class="flex flex-col items-center gap-3">
-        <NavigationButton name="Health" :icon="healthIcon" description="Health" />
+        <MainButton name="Health" iconName="health" />
         <label for="Health">Health</label>
       </div>
       <div class="flex flex-col items-center gap-3">
-        <NavigationButton name="Tech" :icon="techIcon" description="Tech" />
+        <MainButton name="Tech" iconName="technology" />
         <label for="Tech">Tech</label>
       </div>
     </div>

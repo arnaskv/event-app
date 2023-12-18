@@ -2,31 +2,53 @@
 import { storeToRefs } from 'pinia'
 import { useDark, useToggle } from '@vueuse/core'
 import useSidebarStore from '@/stores/sidebar'
-import addIcon from '@/assets/icons/add.svg'
-import darkModeIcon from '@/assets/icons/dark_mode.svg'
-// import lightModeIcon from '@/assets/icons/light_mode.svg'
-import SidebarItem from './components/SidebarItem.vue'
+import { onMounted, onUnmounted } from 'vue'
+import SidebarItem from './SidebarItem.vue'
 
 const { sidebarEnabled } = storeToRefs(useSidebarStore())
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-// function toggleTheme() {}
+let previousWidth = window.innerWidth
+
+function checkSize() {
+  const currentWidth = window.innerWidth
+  if (window.innerWidth < 768 && previousWidth >= 768) {
+    sidebarEnabled.value = false
+  }
+  previousWidth = currentWidth
+}
+
+onMounted(() => {
+  window.addEventListener('resize', checkSize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkSize)
+})
 </script>
 
 <template>
   <menu
     v-show="sidebarEnabled"
-    class="sidebar absolute w-full bg-white dark:bg-black text-white md:block md:relative md:w-72"
+    class="sidebar absolute w-full bg-rose-50 dark:bg-slate-900 dark:border-white text-white border-solid border-2 border-black rounded-t-lg md:block md:relative md:w-80 md:rounded-none md:rounded-r-lg"
   >
-    <SidebarItem title="Create event" :icon="addIcon" description="Add" />
-    <!-- <SidebarItem title="Near me" icon="" />
-    <SidebarItem title="My tickets" icon="" />
-    <SidebarItem title="Upcoming events" icon="" /> -->
+    <SidebarItem title="Create event" iconName="add" />
+    <SidebarItem title="Nearby" iconName="nearby" />
+    <SidebarItem title="My tickets" iconName="ticket" />
+    <SidebarItem title="Upcoming events" iconName="event_upcoming" />
     <SidebarItem
+      v-if="isDark"
       @clicked="toggleDark"
-      title="change theme"
-      :icon="darkModeIcon"
+      title="Light mode"
+      iconName="light_mode"
+      description="Light mode"
+    />
+    <SidebarItem
+      v-else
+      @clicked="toggleDark"
+      title="Dark mode"
+      iconName="dark_mode"
       description="Dark mode"
     />
   </menu>
