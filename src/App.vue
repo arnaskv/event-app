@@ -5,7 +5,7 @@ import SideBar from './components/sidebar/SideBar.vue'
 </script>
 
 <template>
-  <div class="text-black dark:bg-black dark:text-white">
+  <div class="bg-slate-200 text-black dark:bg-zinc-900 dark:text-white">
     <MainBar />
     <div class="flex">
       <SideBar />

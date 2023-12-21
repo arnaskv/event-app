@@ -5,21 +5,26 @@ import useSidebarStore from '@/stores/sidebar'
 import MainBarButton from './MainBarButton.vue'
 
 const { sidebarEnabled } = storeToRefs(useSidebarStore())
-const { toggleSidebar } = useSidebarStore()
 </script>
 
 <template>
   <div class="flex mainbar justify-between items-center px-4">
     <MainBarButton
-      v-if="!sidebarEnabled"
+      v-show="!sidebarEnabled"
       icon-name="menu"
-      @clicked="toggleSidebar"
+      @clicked="sidebarEnabled = true"
       class="md:invisible"
     />
-    <MainBarButton v-else icon-name="close" @clicked="toggleSidebar" class="md:invisible" />
+    <MainBarButton
+      v-show="sidebarEnabled"
+      icon-name="close"
+      @clicked="sidebarEnabled = false"
+      class="md:invisible"
+    />
     <router-link
       :to="{ name: 'home' }"
-      class="app-name text-4xl text-amber-200 light-mode-outline dark:text-amber-800 dark:dark-mode-outline"
+      @click="sidebarEnabled = false"
+      class="app-name text-4xl text-amber-300 light-mode-outline dark:text-amber-700 dark:dark-mode-outline"
     >
       EventFully
     </router-link>

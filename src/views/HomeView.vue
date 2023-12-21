@@ -10,32 +10,39 @@ import MainButton from '@/components/MainButton.vue'
       <p class="font-bold">Categories</p>
       <router-link :to="{ name: 'category' }" class="font-bold underline">See all</router-link>
     </div>
-    <div class="grid grid-cols-5">
+    <div class="flex justify-between">
       <!-- Could be improved to dynamically display 5 most relevant categories by users activity -->
-      <div class="flex flex-col items-center gap-3">
-        <MainButton name="Music" iconName="headphones" />
-        <label for="Music">Music</label>
+      <div class="aspect-square w-20 border-solid border-black border-2 hover:bg-amber-300">
+        <MainButton iconName="music" titleBottom="Music" :square="true" />
       </div>
-      <div class="flex flex-col items-center gap-3">
-        <MainButton name="Esports" iconName="esports" />
-        <label for="Esports">Esports</label>
-      </div>
-      <div class="flex flex-col items-center gap-3">
-        <MainButton name="Fashion" iconName="fashion" />
-        <label for="Fashion">Fashion</label>
-      </div>
-      <div class="flex flex-col items-center gap-3">
-        <MainButton name="Health" iconName="health" />
-        <label for="Health">Health</label>
-      </div>
-      <div class="flex flex-col items-center gap-3">
-        <MainButton name="Tech" iconName="technology" />
-        <label for="Tech">Tech</label>
-      </div>
+      <MainButton
+        class="border-solid border-black border-2 hover:bg-amber-300"
+        iconName="esports"
+        titleBottom="Esports"
+        :square="true"
+      />
+      <MainButton
+        class="border-solid border-black border-2 hover:bg-amber-300"
+        iconName="fashion"
+        titleBottom="Fashion"
+        :square="true"
+      />
+      <MainButton
+        class="border-solid border-black border-2 hover:bg-amber-300"
+        iconName="health"
+        titleBottom="Health"
+        :square="true"
+      />
+      <MainButton
+        class="border-solid border-black border-2 hover:bg-amber-300"
+        iconName="tech"
+        titleBottom="Tech"
+        :square="true"
+      />
     </div>
   </menu>
   <section>
     <p class="font-bold">Trending</p>
-    <div class="flex flex-wrap"></div>
+    <div class="flex flex-nowrap"></div>
   </section>
 </template>

@@ -19,6 +19,21 @@ const router = createRouter({
       path: '/category/:category/:event',
       component: () => import('@/views/EventView.vue'),
     },
+    {
+      path: '/create-event',
+      name: 'createEvent',
+      component: () => import('@/views/CreateEventView.vue'),
+    },
+    {
+      path: '/nearby',
+      name: 'nearby',
+      component: () => import('@/views/NearbyEventsView.vue'),
+    },
+    {
+      path: '/upcoming',
+      name: 'upcoming',
+      component: () => import('@/views/UpcomingEventsView.vue'),
+    },
   ],
 })
 

@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import SvgIcon from '@/components/SvgIcon.vue'
 
-defineProps<{
-  iconName: string
-  title?: string
-}>()
+withDefaults(
+  defineProps<{
+    iconName: string
+    titleRight?: string
+    titleBottom?: string
+    square?: boolean
+  }>(),
+  {
+    titleRight: '',
+    titleBottom: '',
+    square: false,
+  }
+)
 
 defineEmits(['clicked'])
 </script>
@@ -13,11 +22,19 @@ defineEmits(['clicked'])
   <button
     type="button"
     @click="$emit('clicked')"
-    class="flex items-center cursor-pointer rounded-lg text-black dark:text-white"
+    class="flex items-center cursor-pointer rounded-lg"
+    :class="{ 'aspect-square': square }"
   >
-    <span class="dark:fill-white" :class="{ 'mr-4': title }">
+    <span
+      class="dark:fill-white"
+      :class="{
+        'mr-4': titleRight,
+        'grid justify-items-center': titleBottom,
+      }"
+    >
       <SvgIcon :name="iconName" />
+      <div v-if="titleBottom" class="mt-2">{{ titleBottom }}</div>
     </span>
-    <span>{{ title }}</span>
+    <span v-if="titleRight">{{ titleRight }}</span>
   </button>
 </template>

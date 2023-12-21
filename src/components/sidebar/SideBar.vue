@@ -3,9 +3,11 @@ import { storeToRefs } from 'pinia'
 import { useDark, useToggle } from '@vueuse/core'
 import useSidebarStore from '@/stores/sidebar'
 import { onMounted, onUnmounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import SidebarItem from './SidebarItem.vue'
 
 const { sidebarEnabled } = storeToRefs(useSidebarStore())
+const { toggleSidebar } = useSidebarStore()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
@@ -31,12 +33,19 @@ onUnmounted(() => {
 <template>
   <menu
     v-show="sidebarEnabled"
-    class="grid auto-rows-min gap-4 p-4 sidebar absolute w-full bg-rose-50 dark:bg-slate-900 dark:border-white text-white border-solid border-2 border-black rounded-t-lg md:block md:relative md:w-80 md:rounded-none md:rounded-r-lg"
+    class="grid auto-rows-min gap-4 p-4 sidebar absolute w-full bg-rose-50 dark:bg-slate-800 dark:border-white border-solid border-2 border-black rounded-t-lg md:block md:relative md:w-80 md:rounded-none md:rounded-r-lg"
   >
-    <SidebarItem title="Create event" iconName="add" />
-    <SidebarItem title="Nearby" iconName="nearby" />
-    <SidebarItem title="My tickets" iconName="ticket" />
-    <SidebarItem title="Upcoming events" iconName="event_upcoming" />
+    <router-link :to="{ name: 'createEvent' }">
+      <SidebarItem @clicked="toggleSidebar" title="Create event" iconName="add" />
+    </router-link>
+    <router-link :to="{ name: 'nearby' }">
+      <SidebarItem @clicked="toggleSidebar" title="Nearby" iconName="nearby" />
+    </router-link>
+    <!-- Implement after user authetication -->
+    <!-- <SidebarItem title="My tickets" iconName="ticket" /> -->
+    <router-link :to="{ name: 'upcoming' }">
+      <SidebarItem @clicked="toggleSidebar" title="Upcoming events" iconName="event_upcoming" />
+    </router-link>
     <SidebarItem
       v-if="isDark"
       @clicked="toggleDark"

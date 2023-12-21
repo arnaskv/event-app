@@ -13,7 +13,7 @@ defineEmits(['clicked'])
   <MainButton
     @clicked="$emit('clicked')"
     :icon-name="iconName"
-    :title="title"
-    class="bg-amber-200 p-2 rounded aspect-square min-w-min hover:bg-amber-300 dark:bg-amber-800 dark:hover:bg-amber-700"
+    :title-right="title"
+    class="bg-amber-300 p-2 rounded aspect-square min-w-min hover:bg-amber-400 dark:bg-amber-700 dark:hover:bg-amber-600"
   />
 </template>
