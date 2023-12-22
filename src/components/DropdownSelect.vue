@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch, watchEffect } from 'vue'
+import { isTitle } from '@/utils/utilities'
 
 const props = defineProps<{
   name: string
@@ -30,10 +31,6 @@ watchEffect(() => {
 
 function toggleDropdown() {
   isOpen.value = !isOpen.value
-}
-
-function isTitle(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 function selectItem(item: string): void {

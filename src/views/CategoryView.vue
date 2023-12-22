@@ -10,7 +10,7 @@ const { categories } = useCategoryStore()
     <p class="font-bold">All categories</p>
     <div class="flex justify-end">
       <MainButton
-        class="p-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600"
+        class="p-2 bg-rose-300 hover:bg-rose-400 dark:bg-rose-800 dark:hover:bg-rose-700"
         icon-name="sort"
         title-right="Sort"
       />
