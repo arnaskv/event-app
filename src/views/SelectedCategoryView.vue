@@ -16,7 +16,7 @@ const events: Event[] = getEventsByCategory(currentCategory)
 
 <template>
   <header>
-    <MainButton @click="router.go(-1)" icon-name="arrow_back" />
+    <MainButton @click="router.back" icon-name="arrow_back" />
     <span>{{ currentCategory }}</span>
   </header>
   <main>
