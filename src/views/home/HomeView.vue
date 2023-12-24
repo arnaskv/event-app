@@ -9,7 +9,7 @@ import CategoryButton from './CategoryButton.vue'
   <menu class="py-8">
     <div class="flex justify-between pb-5">
       <p class="font-bold">Categories</p>
-      <router-link :to="{ name: 'category' }" class="font-bold underline">See all</router-link>
+      <router-link :to="{ name: 'categories' }" class="font-bold underline">See all</router-link>
     </div>
     <div class="flex justify-between">
       <!-- Could be improved to dynamically display 5 most relevant categories by users activity -->

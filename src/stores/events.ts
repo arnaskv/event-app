@@ -21,5 +21,10 @@ export const useEventsStore = defineStore('event', () => {
     events.value.push(newEvent)
     localStorage.setItem('events', JSON.stringify(events.value))
   }
-  return { events, addEvent }
+
+  function getEventsByCategory(category: string): Event[] {
+    return events.value.filter((event) => event.categories.includes(category))
+  }
+
+  return { events, addEvent, getEventsByCategory }
 })

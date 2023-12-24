@@ -11,12 +11,18 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/category',
-      name: 'category',
+      path: '/categories',
+      name: 'categories',
       component: CategoryView,
     },
     {
-      path: '/category/:category/:event',
+      path: '/:category',
+      name: 'category',
+      component: () => import('@/views/SelectedCategoryView.vue'),
+    },
+    {
+      path: '/:event',
+      name: 'event',
       component: () => import('@/views/EventView.vue'),
     },
     {
