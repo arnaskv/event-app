@@ -52,7 +52,7 @@ router.beforeEach((to, _, next) => {
   const { events } = useEventsStore()
   const routeExists = routes.some((route) => route.path === to.path)
   const categoryExists = categories.some((category) => category === to.params.category)
-  const eventExists = events.some((event) => event.name === to.params.event)
+  const eventExists = events.some((event) => event.id.toString() === to.params.event)
 
   if (routeExists || categoryExists || eventExists) {
     next()

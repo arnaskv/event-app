@@ -32,7 +32,7 @@ function goToCategeory(selectedCategory: string): void {
       :key="category"
       :icon-name="category"
       :title-bottom="category"
-      class="bg-rose-500 flex justify-center h-60"
+      class="flex justify-center h-60 bg-amber-300 hover:bg-amber-400"
     />
   </main>
 </template>

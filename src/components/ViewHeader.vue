@@ -5,7 +5,9 @@ import BackButton from './BackButton.vue'
 defineProps<{
   title: string
   sort?: boolean
+  sortOptions?: string[]
   filter?: boolean
+  filterOptions?: string[]
 }>()
 </script>
 

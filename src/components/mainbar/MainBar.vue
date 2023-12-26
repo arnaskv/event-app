@@ -3,24 +3,19 @@ import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import useSidebarStore from '@/stores/sidebar'
 import MainBarButton from './MainBarButton.vue'
+import MainButton from '../MainButton.vue'
 
 const { sidebarEnabled } = storeToRefs(useSidebarStore())
 </script>
 
 <template>
-  <div class="flex mainbar justify-between items-center px-4">
-    <MainBarButton
-      v-show="!sidebarEnabled"
-      icon-name="menu"
-      @clicked="sidebarEnabled = true"
-      class="md:invisible"
-    />
-    <MainBarButton
-      v-show="sidebarEnabled"
-      icon-name="close"
-      @clicked="sidebarEnabled = false"
-      class="md:invisible"
-    />
+  <div class="mainbar flex justify-between items-center px-4">
+    <MainBarButton v-show="!sidebarEnabled" @click="sidebarEnabled = true" class="md:invisible">
+      <MainButton icon-name="menu" />
+    </MainBarButton>
+    <MainBarButton v-show="sidebarEnabled" @click="sidebarEnabled = false" class="md:invisible">
+      <MainButton icon-name="close" />
+    </MainBarButton>
     <router-link
       :to="{ name: 'home' }"
       @click="sidebarEnabled = false"
@@ -28,7 +23,9 @@ const { sidebarEnabled } = storeToRefs(useSidebarStore())
     >
       EventFully
     </router-link>
-    <MainBarButton icon-name="search" />
+    <MainBarButton>
+      <MainButton icon-name="search" />
+    </MainBarButton>
   </div>
 </template>
 

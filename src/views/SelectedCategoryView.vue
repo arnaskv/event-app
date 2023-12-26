@@ -16,7 +16,7 @@ const eventsInCategory: Event[] = getEventsByCategory(currentCategory)
 
 <template>
   <ViewHeader :title="currentCategory" />
-  <main>
+  <main class="grid space-y-4">
     <div v-for="event in eventsInCategory" :key="event.name">
       <SingleEvent :event="event" />
     </div>

@@ -7,16 +7,17 @@ import DropdownSelect from '@/components/DropdownSelect.vue'
 import ViewHeader from '@/components/ViewHeader.vue'
 
 const { categories } = useCategoryStore()
+const { addEvent, getNewId } = useEventsStore()
 const initialState: Event = {
+  id: getNewId(),
   name: '',
   location: '',
   timestamp: '',
   categories: [],
   description: '',
 }
-const formData: Event = reactive({ ...initialState })
 
-const { addEvent } = useEventsStore()
+const formData: Event = reactive({ ...initialState })
 const formEnabled = ref<boolean>(true)
 const resetSignal = ref<boolean>(false)
 const currentDateFormatted = useDateFormat(useNow(), 'YYYY-MM-DDTHH:MM')
@@ -105,11 +106,4 @@ function handleCategoryUpdate(selected: string[]) {
       </button>
     </div>
   </form>
-  <!-- <input
-      label="Upload image"
-      input-id="image"
-      type="file"
-      accept="image/"
-      v-model="formData.image"
-    /> -->
 </template>

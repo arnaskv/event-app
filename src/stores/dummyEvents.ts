@@ -1,5 +1,6 @@
 const dummyEvents = [
   {
+    id: 1,
     name: 'Tech Conference 2023',
     location: 'Virtual',
     timestamp: '2023-09-15T10:00:00Z',
@@ -7,6 +8,7 @@ const dummyEvents = [
     description: 'Join us for the biggest tech conference of the year!',
   },
   {
+    id: 2,
     name: 'Health Expo',
     location: 'City Convention Center',
     timestamp: '2023-08-20T14:00:00Z',
@@ -14,6 +16,7 @@ const dummyEvents = [
     description: 'Explore the latest in health and wellness.',
   },
   {
+    id: 3,
     name: 'Music Festival',
     location: 'Downtown Park',
     timestamp: '2023-07-10T19:30:00Z',
@@ -21,11 +24,44 @@ const dummyEvents = [
     description: 'Enjoy live music performances from top artists!',
   },
   {
+    id: 4,
     name: 'Fashion Show',
     location: 'Fashion Mall',
     timestamp: '2023-06-05T15:00:00Z',
     categories: ['fashion'],
     description: 'Witness the latest fashion trends on the runway.',
+  },
+  {
+    id: 5,
+    name: 'Esports Tournament',
+    location: 'Online',
+    timestamp: '2023-11-20T16:00:00Z',
+    categories: ['esports'],
+    description: 'Compete in the ultimate esports showdown!',
+  },
+  {
+    id: 6,
+    name: 'Volunteer Cleanup Day',
+    location: 'Local Park',
+    timestamp: '2023-10-08T09:00:00Z',
+    categories: ['volunteering'],
+    description: 'Join us in making our community cleaner and greener.',
+  },
+  {
+    id: 7,
+    name: 'Art Exhibition',
+    location: 'Art Gallery',
+    timestamp: '2023-09-15T11:00:00Z',
+    categories: ['other'],
+    description: 'Discover a diverse range of artworks from local artists.',
+  },
+  {
+    id: 8,
+    name: 'Startup Summit',
+    location: 'Conference Center',
+    timestamp: '2023-08-20T09:30:00Z',
+    categories: ['tech'],
+    description: 'Connect with innovative startups and tech enthusiasts.',
   },
 ]
 

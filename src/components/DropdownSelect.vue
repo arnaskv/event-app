@@ -50,10 +50,16 @@ watchEffect(() => {
         type="button"
         v-for="selection in selected"
         :key="selection"
-        @click="removeItem(selection)"
-        class="py-1 px-2 rounded-lg bg-rose-300 hover:bg-rose-400 dark:bg-rose-800 dark:hover:bg-rose-700"
+        class="py-1 px-2 rounded-lg bg-rose-300 dark:bg-rose-800"
       >
-        {{ isTitle(selection) }} x
+        {{ isTitle(selection) }}
+        <button
+          @click="removeItem(selection)"
+          type="button"
+          class="rounded-full px-2 aspect-square hover:bg-rose-400 dark:hover:bg-rose-700"
+        >
+          x
+        </button>
       </button>
     </div>
   </span>
