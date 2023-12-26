@@ -4,6 +4,7 @@ import { useDateFormat, useNow } from '@vueuse/core'
 import { type Event, useEventsStore } from '@/stores/events'
 import useCategoryStore from '@/stores/category'
 import DropdownSelect from '@/components/DropdownSelect.vue'
+import ViewHeader from '@/components/ViewHeader.vue'
 
 const { categories } = useCategoryStore()
 const initialState: Event = {
@@ -48,7 +49,7 @@ function handleCategoryUpdate(selected: string[]) {
 </script>
 
 <template>
-  <div class="font-bold pt-4 pb-8">Create a new event:</div>
+  <ViewHeader title="create a new event" />
   <div v-show="!formEnabled">
     <div class="pb-4">Event submitted successfully!</div>
     <button

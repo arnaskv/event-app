@@ -1,7 +1,9 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import dummyEvents from './dummyEvents'
 
 export type Event = {
+  // id: number
   name: string
   location: string
   timestamp: string
@@ -13,8 +15,9 @@ export const useEventsStore = defineStore('event', () => {
   const events = ref<Event[]>(getEvents())
 
   function getEvents(): Event[] {
-    const eventsString = localStorage.getItem('events')
-    return eventsString ? JSON.parse(eventsString) : []
+    // const eventsString = localStorage.getItem('events')
+    // return eventsString ? JSON.parse(eventsString) : []
+    return dummyEvents
   }
 
   function addEvent(newEvent: Event) {

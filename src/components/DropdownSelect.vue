@@ -19,16 +19,6 @@ const availableOptions = computed(() => {
   return props.options.filter((option) => !selected.value.includes(option))
 })
 
-watch(selected, (newValue) => {
-  emit('update', newValue)
-})
-
-watchEffect(() => {
-  if (props.resetSignal) {
-    selected.value = []
-  }
-})
-
 function toggleDropdown() {
   isOpen.value = !isOpen.value
 }
@@ -41,6 +31,16 @@ function selectItem(item: string): void {
 function removeItem(item: string): void {
   selected.value = selected.value.filter((value) => value !== item)
 }
+
+watch(selected, (newValue) => {
+  emit('update', newValue)
+})
+
+watchEffect(() => {
+  if (props.resetSignal) {
+    selected.value = []
+  }
+})
 </script>
 
 <template>

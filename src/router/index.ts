@@ -21,7 +21,7 @@ const routes = [
     component: () => import('@/views/SelectedCategoryView.vue'),
   },
   {
-    path: '/:event',
+    path: '/event/:event',
     name: 'event',
     component: () => import('@/views/EventView.vue'),
   },

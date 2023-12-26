@@ -1,27 +1,24 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { type Event, useEventsStore } from '@/stores/events'
-import MainButton from '@/components/MainButton.vue'
+import ViewHeader from '@/components/ViewHeader.vue'
+import SingleEvent from '@/components/SingleEvent.vue'
 
 const route = useRoute()
-const router = useRouter()
 const { getEventsByCategory } = useEventsStore()
 
 const currentCategory = Array.isArray(route.params.category)
   ? route.params.category[0]
   : route.params.category
 
-const events: Event[] = getEventsByCategory(currentCategory)
+const eventsInCategory: Event[] = getEventsByCategory(currentCategory)
 </script>
 
 <template>
-  <header>
-    <MainButton @click="router.back" icon-name="arrow_back" />
-    <span>{{ currentCategory }}</span>
-  </header>
+  <ViewHeader :title="currentCategory" />
   <main>
-    <div v-for="event in events" :key="event.name">
-      {{ event.name }}
+    <div v-for="event in eventsInCategory" :key="event.name">
+      <SingleEvent :event="event" />
     </div>
   </main>
 </template>
