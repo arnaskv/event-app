@@ -9,10 +9,21 @@ export type Event = {
   timestamp: string
   categories: string[]
   description: string
+  clicks: number
 }
 
 export const useEventsStore = defineStore('event', () => {
   const events = ref<Event[]>(getEvents())
+
+  const eventInitialState: Event = {
+    id: getNewId(),
+    name: '',
+    location: '',
+    timestamp: '',
+    categories: [],
+    description: '',
+    clicks: 0,
+  }
 
   function addEvent(newEvent: Event) {
     events.value.push(newEvent)
@@ -51,5 +62,18 @@ export const useEventsStore = defineStore('event', () => {
       .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
   }
 
-  return { events, addEvent, getNewId, getEventById, getEventsByCategory, getUpcomingEvents }
+  function getTrendingEvents(): Event[] {
+    return events.value.sort((a, b) => b.clicks - a.clicks).slice(0, 5)
+  }
+
+  return {
+    events,
+    eventInitialState,
+    addEvent,
+    getNewId,
+    getEventById,
+    getEventsByCategory,
+    getUpcomingEvents,
+    getTrendingEvents,
+  }
 })

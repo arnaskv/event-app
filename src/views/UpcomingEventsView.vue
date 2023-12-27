@@ -10,5 +10,5 @@ const upcomingEvents = getUpcomingEvents()
 
 <template>
   <ViewHeader title="upcoming events" />
-  <SingleEvent v-for="event in upcomingEvents" :key="event.id" />
+  <SingleEvent v-for="event in upcomingEvents" :key="event.id" :event="event" />
 </template>

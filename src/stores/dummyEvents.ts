@@ -6,6 +6,7 @@ const dummyEvents = [
     timestamp: '2023-09-15T10:00:00Z',
     categories: ['tech'],
     description: 'Join us for the biggest tech conference of the year!',
+    clicks: 10,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const dummyEvents = [
     timestamp: '2023-08-20T14:00:00Z',
     categories: ['health'],
     description: 'Explore the latest in health and wellness.',
+    clicks: 40,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const dummyEvents = [
     timestamp: '2023-07-10T19:30:00Z',
     categories: ['music'],
     description: 'Enjoy live music performances from top artists!',
+    clicks: 17,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const dummyEvents = [
     timestamp: '2023-06-05T15:00:00Z',
     categories: ['fashion'],
     description: 'Witness the latest fashion trends on the runway.',
+    clicks: 50,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const dummyEvents = [
     timestamp: '2023-11-20T16:00:00Z',
     categories: ['esports'],
     description: 'Compete in the ultimate esports showdown!',
+    clicks: 100,
   },
   {
     id: 6,
@@ -46,14 +51,16 @@ const dummyEvents = [
     timestamp: '2023-10-08T09:00:00Z',
     categories: ['volunteering'],
     description: 'Join us in making our community cleaner and greener.',
+    clicks: 12,
   },
   {
     id: 7,
     name: 'Art Exhibition',
     location: 'Art Gallery',
-    timestamp: '2023-09-15T11:00:00Z',
+    timestamp: '2023-12-30T11:00:00Z',
     categories: ['other'],
     description: 'Discover a diverse range of artworks from local artists.',
+    clicks: 108,
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ const dummyEvents = [
     timestamp: '2023-08-20T09:30:00Z',
     categories: ['tech'],
     description: 'Connect with innovative startups and tech enthusiasts.',
+    clicks: 50,
   },
 ]
 

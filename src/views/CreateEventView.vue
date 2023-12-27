@@ -7,24 +7,16 @@ import DropdownSelect from '@/components/DropdownSelect.vue'
 import ViewHeader from '@/components/ViewHeader.vue'
 
 const { categories } = useCategoryStore()
-const { addEvent, getNewId } = useEventsStore()
-const initialState: Event = {
-  id: getNewId(),
-  name: '',
-  location: '',
-  timestamp: '',
-  categories: [],
-  description: '',
-}
+const { eventInitialState, addEvent } = useEventsStore()
 
-const formData: Event = reactive({ ...initialState })
+const formData: Event = reactive({ ...eventInitialState })
 const formEnabled = ref<boolean>(true)
 const resetSignal = ref<boolean>(false)
 const currentDateFormatted = useDateFormat(useNow(), 'YYYY-MM-DDTHH:MM')
 
 function resetForm() {
   resetSignal.value = true
-  Object.assign(formData, initialState)
+  Object.assign(formData, eventInitialState)
   nextTick(() => {
     resetSignal.value = false
   })
