@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useGeolocation } from '@vueuse/core'
+// import { useGeolocation } from '@vueuse/core'
 import ViewHeader from '@/components/ViewHeader.vue'
 
-const geolocation = useGeolocation()
+// const geolocation = useGeolocation()
 </script>
 
 <template>

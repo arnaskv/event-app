@@ -41,7 +41,7 @@ const trendingEvents = getTrendingEvents()
   </menu>
   <section>
     <p class="font-bold pb-4">Trending</p>
-    <div class="grid gap-4 grid-cols-5">
+    <div class="grid gap-4 grid-cols-2 lg:grid-cols-4">
       <TrendingEvent v-for="event in trendingEvents" :key="event.id" :event="event" />
     </div>
   </section>

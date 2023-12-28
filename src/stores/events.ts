@@ -64,7 +64,7 @@ export const useEventsStore = defineStore('event', () => {
 
   function getTrendingEvents(): Event[] {
     const sortedEvents = events.value.sort((a, b) => b.clicks - a.clicks)
-    return sortedEvents.slice(0, Math.min(sortedEvents.length, 5))
+    return sortedEvents.slice(0, Math.min(sortedEvents.length, 4))
   }
 
   function removePastEvents() {
