@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { isTitle } from '@/utils/utilities'
 
 const props = defineProps<{
@@ -25,6 +25,7 @@ function toggleDropdown() {
 
 function selectItem(item: string): void {
   selected.value.push(item)
+  emit('update', selected.value)
   toggleDropdown()
 }
 
@@ -32,8 +33,8 @@ function removeItem(item: string): void {
   selected.value = selected.value.filter((value) => value !== item)
 }
 
-watch(selected, (newValue) => {
-  emit('update', newValue)
+watchEffect(() => {
+  emit('update', selected.value)
 })
 
 watchEffect(() => {

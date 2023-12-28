@@ -10,5 +10,10 @@ const upcomingEvents = getUpcomingEvents()
 
 <template>
   <ViewHeader title="upcoming events" />
-  <SingleEvent v-for="event in upcomingEvents" :key="event.id" :event="event" />
+  <div v-if="upcomingEvents.length > 0">
+    <div class="grid space-y-4">
+      <SingleEvent v-for="event in upcomingEvents" :key="event.id" :event="event" />
+    </div>
+  </div>
+  <div v-else>No upcoming events for the following week.</div>
 </template>

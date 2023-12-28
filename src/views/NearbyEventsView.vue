@@ -7,5 +7,5 @@ const geolocation = useGeolocation()
 
 <template>
   <ViewHeader title="nearby events" />
-  {{ geolocation }}
+  <div>Coming soon</div>
 </template>

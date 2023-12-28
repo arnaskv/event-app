@@ -1,6 +1,6 @@
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { defineStore } from 'pinia'
-import dummyEvents from './dummyEvents'
+// import dummyEvents from './dummyEvents'
 
 export type Event = {
   id: number
@@ -35,9 +35,9 @@ export const useEventsStore = defineStore('event', () => {
   }
 
   function getEvents(): Event[] {
-    // const eventsString = localStorage.getItem('events')
-    // return eventsString ? JSON.parse(eventsString) : []
-    return dummyEvents
+    const eventsString = localStorage.getItem('events')
+    return eventsString ? JSON.parse(eventsString) : []
+    // return dummyEvents
   }
 
   function getEventById(id: number | string): Event {
@@ -63,8 +63,31 @@ export const useEventsStore = defineStore('event', () => {
   }
 
   function getTrendingEvents(): Event[] {
-    return events.value.sort((a, b) => b.clicks - a.clicks).slice(0, 5)
+    const sortedEvents = events.value.sort((a, b) => b.clicks - a.clicks)
+    return sortedEvents.slice(0, Math.min(sortedEvents.length, 5))
   }
+
+  function removePastEvents() {
+    const currentDate = new Date()
+    events.value = events.value.filter((event) => {
+      const eventDate = new Date(event.timestamp)
+      return eventDate >= currentDate
+    })
+  }
+
+  function addClick(id: number | string) {
+    const eventId = typeof id === 'string' ? parseInt(id, 10) : id
+
+    const event = getEventById(eventId)
+    if (event) {
+      event.clicks += 1
+      localStorage.setItem('events', JSON.stringify(events.value))
+    }
+  }
+
+  watchEffect(() => {
+    removePastEvents()
+  })
 
   return {
     events,
@@ -75,5 +98,6 @@ export const useEventsStore = defineStore('event', () => {
     getEventsByCategory,
     getUpcomingEvents,
     getTrendingEvents,
+    addClick,
   }
 })
