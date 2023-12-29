@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { ref, reactive, nextTick } from 'vue'
 import { useDateFormat, useNow } from '@vueuse/core'
+import { useRouter } from 'vue-router'
 import { type Event, useEventsStore } from '@/stores/events'
 import useCategoryStore from '@/stores/category'
 import ViewHeader from '@/components/ViewHeader.vue'
 import DropdownSelect from './DropdownSelect.vue'
 
+const router = useRouter()
 const { categories } = useCategoryStore()
 const { eventInitialState, addEvent } = useEventsStore()
 
@@ -29,7 +31,6 @@ function checkValues(data: Object): boolean {
 function handleSubmit() {
   const newEvent: Event = { ...formData }
   if (checkValues(newEvent)) {
-    console.log(newEvent)
     addEvent(newEvent)
     resetForm()
     formEnabled.value = false
@@ -44,7 +45,7 @@ function handleCategoryUpdate(selected: string[]) {
 </script>
 
 <template>
-  <ViewHeader title="create a new event" />
+  <ViewHeader @back-click="router.push({ name: 'home' })" title="create a new event" />
   <div v-show="!formEnabled">
     <div class="pb-4">Event submitted successfully!</div>
     <button

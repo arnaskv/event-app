@@ -14,7 +14,7 @@ function goToCategeory(selectedCategory: string): void {
 </script>
 
 <template>
-  <ViewHeader title="all categories" />
+  <ViewHeader @back-click="router.push({ name: 'home' })" title="all categories" />
   <main
     class="grid gap-8 grid-cols-2 pb-8 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
   >
