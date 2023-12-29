@@ -3,8 +3,8 @@ import { ref, reactive, nextTick } from 'vue'
 import { useDateFormat, useNow } from '@vueuse/core'
 import { type Event, useEventsStore } from '@/stores/events'
 import useCategoryStore from '@/stores/category'
-import DropdownSelect from '@/components/DropdownSelect.vue'
 import ViewHeader from '@/components/ViewHeader.vue'
+import DropdownSelect from './DropdownSelect.vue'
 
 const { categories } = useCategoryStore()
 const { eventInitialState, addEvent } = useEventsStore()
@@ -27,8 +27,10 @@ function checkValues(data: Object): boolean {
 }
 
 function handleSubmit() {
-  if (checkValues(formData)) {
-    addEvent(formData)
+  const newEvent: Event = { ...formData }
+  if (checkValues(newEvent)) {
+    console.log(newEvent)
+    addEvent(newEvent)
     resetForm()
     formEnabled.value = false
   } else {

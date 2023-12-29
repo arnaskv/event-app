@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/create-event',
     name: 'createEvent',
-    component: () => import('@/views/CreateEventView.vue'),
+    component: () => import('@/views/createEvent/CreateEventView.vue'),
   },
   {
     path: '/nearby',

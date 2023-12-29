@@ -87,6 +87,7 @@ export const useEventsStore = defineStore('event', () => {
 
   watchEffect(() => {
     removePastEvents()
+    localStorage.setItem('events', JSON.stringify(events.value))
   })
 
   return {
