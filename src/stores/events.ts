@@ -1,6 +1,5 @@
 import { ref, watchEffect } from 'vue'
 import { defineStore } from 'pinia'
-// import dummyEvents from './dummyEvents'
 
 export type Event = {
   id: number
@@ -37,10 +36,9 @@ export const useEventsStore = defineStore('event', () => {
   function getEvents(): Event[] {
     const eventsString = localStorage.getItem('events')
     return eventsString ? JSON.parse(eventsString) : []
-    // return dummyEvents
   }
 
-  function getEventById(id: number | string): Event {
+  function getEventById(id: number | string) {
     const numericId = typeof id === 'string' ? parseInt(id, 10) : id
     return events.value.find((event) => event.id === numericId)
   }

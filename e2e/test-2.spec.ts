@@ -1,9 +1,29 @@
 import { test, expect } from '@playwright/test'
 
-test('test', async ({ page }) => {
+test('dark and light mode toggle', async ({ page }) => {
   await page.goto('/')
-  await page.locator('div').filter({ hasText: 'EventFully' }).nth(2).click()
-  await page.getByRole('button', { name: 'Dark mode' }).click()
-  await page.locator('div').filter({ hasText: 'EventFully' }).nth(2).click()
-  await page.getByRole('button', { name: 'Create event' }).click()
+
+  const isDark = await page.evaluate(() => {
+    return document.documentElement.classList.contains('dark')
+  })
+
+  if (isDark) {
+    await expect(page.getByRole('button', { name: 'Dark mode' })).toBeHidden()
+    await expect(page.getByRole('button', { name: 'Light mode' })).toBeVisible()
+    await page.getByRole('button', { name: 'Light mode' }).click()
+    await expect(page.getByRole('button', { name: 'Dark mode' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Light mode' })).toBeHidden()
+    await page.getByRole('button', { name: 'Dark mode' }).click()
+    await expect(page.getByRole('button', { name: 'Dark mode' })).toBeHidden()
+    await expect(page.getByRole('button', { name: 'Light mode' })).toBeVisible()
+  } else {
+    await expect(page.getByRole('button', { name: 'Dark mode' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Light mode' })).toBeHidden()
+    await page.getByRole('button', { name: 'Dark mode' }).click()
+    await expect(page.getByRole('button', { name: 'Dark mode' })).toBeHidden()
+    await expect(page.getByRole('button', { name: 'Light mode' })).toBeVisible()
+    await page.getByRole('button', { name: 'Light mode' }).click()
+    await expect(page.getByRole('button', { name: 'Dark mode' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Light mode' })).toBeHidden()
+  }
 })
