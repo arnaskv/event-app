@@ -16,9 +16,6 @@ test('adding new event', async ({ page }) => {
   )
   await page.getByRole('button', { name: 'Add another event' }).click()
   await expect(page.getByText('Create a new event')).toHaveText('Create a new event')
-})
-
-test('checks if created event is in category view', async ({ page }) => {
   await page.getByRole('link', { name: 'EventFully' }).click()
   await page.getByRole('link', { name: 'See all' }).click()
   await page.getByRole('button', { name: 'health' }).click()
