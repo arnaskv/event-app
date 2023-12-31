@@ -16,9 +16,9 @@ const eventsInCategory: Event[] = getEventsByCategory(currentCategory)
 </script>
 
 <template>
-  <ViewHeader @back-click="router.push({ name: 'categories' })" :title="currentCategory" />
+  <ViewHeader @back-click="router.back" :title="currentCategory" />
   <main class="grid space-y-4">
-    <div v-for="event in eventsInCategory" :key="event.name">
+    <div v-for="event in eventsInCategory" :key="event.id">
       <SingleEvent :event="event" />
     </div>
   </main>

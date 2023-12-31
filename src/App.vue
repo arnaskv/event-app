@@ -2,6 +2,9 @@
 import { RouterView } from 'vue-router'
 import MainBar from './components/mainbar/MainBar.vue'
 import SideBar from './components/sidebar/SideBar.vue'
+import useSidebarStore from './stores/sidebar'
+
+const { sidebarEnabled } = useSidebarStore()
 </script>
 
 <template>
@@ -10,7 +13,7 @@ import SideBar from './components/sidebar/SideBar.vue'
     <div class="flex">
       <SideBar />
       <main class="flex-1 px-4 main-view">
-        <RouterView />
+        <RouterView v-if="!sidebarEnabled" />
       </main>
     </div>
   </div>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/**
+ * main button from which every other button in the app derives
+ */
 import SvgIcon from '@/components/SvgIcon.vue'
 
 withDefaults(

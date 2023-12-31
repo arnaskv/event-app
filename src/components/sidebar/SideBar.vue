@@ -13,10 +13,18 @@ const toggleDark = useToggle(isDark)
 
 let previousWidth = window.innerWidth
 
+/**
+ * hides sidebar going back to smaller than md if enabled
+ */
 function checkSize() {
   const currentWidth = window.innerWidth
   if (window.innerWidth < 768 && previousWidth >= 768) {
     sidebarEnabled.value = false
+  }
+  previousWidth = currentWidth
+
+  if (window.innerWidth >= 768 && previousWidth < 768) {
+    sidebarEnabled.value = true
   }
   previousWidth = currentWidth
 }
@@ -38,11 +46,9 @@ onUnmounted(() => {
     <router-link :to="{ name: 'createEvent' }">
       <SidebarItem @clicked="toggleSidebar" title="Create event" iconName="add" />
     </router-link>
-    <router-link :to="{ name: 'nearby' }">
+    <!-- <router-link :to="{ name: 'nearby' }">
       <SidebarItem @clicked="toggleSidebar" title="Nearby" iconName="nearby" />
-    </router-link>
-    <!-- Implement after user authetication -->
-    <!-- <SidebarItem title="My tickets" iconName="ticket" /> -->
+    </router-link> -->
     <router-link :to="{ name: 'upcoming' }">
       <SidebarItem @clicked="toggleSidebar" title="Upcoming events" iconName="event_upcoming" />
     </router-link>

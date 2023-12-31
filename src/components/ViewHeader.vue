@@ -1,4 +1,7 @@
 <script setup lang="ts">
+/**
+ * standart header for a subview
+ */
 import { isTitle } from '@/utils/utilities'
 import BackButton from './BackButton.vue'
 

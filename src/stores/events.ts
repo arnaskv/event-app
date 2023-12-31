@@ -83,6 +83,10 @@ export const useEventsStore = defineStore('event', () => {
     }
   }
 
+  function searchForEvent(input: string): Event[] {
+    return events.value.filter((event) => event.name.toLowerCase().includes(input.toLowerCase()))
+  }
+
   watchEffect(() => {
     removePastEvents()
     localStorage.setItem('events', JSON.stringify(events.value))
@@ -98,5 +102,6 @@ export const useEventsStore = defineStore('event', () => {
     getUpcomingEvents,
     getTrendingEvents,
     addClick,
+    searchForEvent,
   }
 })
